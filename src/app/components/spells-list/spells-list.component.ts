@@ -8,6 +8,7 @@ import { SpellsDataService } from 'src/app/service/spells-data.service';
   styleUrls: ['./spells-list.component.scss'],
 })
 export class SpellsListComponent implements OnInit {
+
   spells: Spell[] = [];
 
   constructor(private spellData: SpellsDataService) {}
@@ -16,5 +17,10 @@ export class SpellsListComponent implements OnInit {
     this.spellData.getSpellsList().subscribe((childrenData) => {
       this.spells = childrenData;
     });
+  }
+
+  spellSelected(index: string) {
+
+
   }
 }

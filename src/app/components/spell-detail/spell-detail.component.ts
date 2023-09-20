@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SpellDetail } from 'src/app/model/spell';
 import { SpellsDataService } from 'src/app/service/spells-data.service';
 
 @Component({
@@ -8,15 +9,18 @@ import { SpellsDataService } from 'src/app/service/spells-data.service';
 })
 export class SpellDetailComponent implements OnInit{
   // spell: Spell
-  myparam="";
+  // myparam="";
 
-  constructor(public spellData: SpellsDataService ){
-
-  }
+  constructor(public spellData: SpellsDataService ){}
 
   ngOnInit(): void {
 
-    this.spellData.getSpellDetail(this.myparam);
+    //this.spellData.getSpellDetail().subscribe((spell: SpellDetail) =>console.log(spell));
+
+    const params = new URLSearchParams(window.location.search)
+    if(params.get('spell')){
+      this.spellData.getSpellDetailWithIndex(params.get('spell')!).subscribe((spell:SpellDetail)=> console.log(spell))
+    }
   }
 
 

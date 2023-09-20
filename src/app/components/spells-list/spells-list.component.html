@@ -1,6 +1,6 @@
 <ul>
   <li *ngFor="let spell of spells">
-    <app-spell-card [spellData]="spell"></app-spell-card>
+    <app-spell-card [spellData]="spell" (indexData)="spellSelected($event)"></app-spell-card>
 
   </li>
   <!-- <button (click)="selectSpell()">select</button> -->

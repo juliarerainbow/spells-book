@@ -1,14 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Spell } from '../model/spell';
-import { map, tap } from 'rxjs';
+import { Spell, SpellDetail } from '../model/spell';
+import { Observable, map, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SpellsDataService {
 
-  selectedSpell = ''
+
+  selectedSpell = 'fire-ball'
 
 
   constructor(private http:HttpClient) { }
@@ -23,10 +24,19 @@ export class SpellsDataService {
     );
   }
 
-  getSpellDetail(param:any){
-    console.log('ciao');
+  getSpellDetail():Observable<SpellDetail> {
+    return this.http.get<SpellDetail>('https://www.dnd5eapi.co/api/spells/' + this.selectedSpell)
+  }
+
+
+  getSpellDetailWithIndex(index: string) {
+
+    return this.http.get<SpellDetail>('https://www.dnd5eapi.co/api/spells/'+index);
 
   }
+  
+
+
 
 
 
