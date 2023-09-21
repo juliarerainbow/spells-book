@@ -1,0 +1,123 @@
+/* For use in src/lib/core/theming/_palette.scss */
+
+@use '@angular/material' as mat;
+
+@include mat.core();
+
+$super-one:  (
+    50 : #ecffe0,
+    100 : #cfffb3,
+    200 : #afff80,
+    300 : #8eff4d,
+    400 : #76ff26,
+    500 : #5eff00,
+    600 : #56ff00,
+    700 : #4cff00,
+    800 : #42ff00,
+    900 : #31ff00,
+    A100 : #ffffff,
+    A200 : #f4fff2,
+    A400 : #c8ffbf,
+    A700 : #b2ffa6,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
+        700 : #000000,
+        800 : #000000,
+        900 : #000000,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+$super-three: (
+    50 : #ffe2ed,
+    100 : #ffb6d3,
+    200 : #ff86b6,
+    300 : #ff5699,
+    400 : #ff3183,
+    500 : #ff0d6d,
+    600 : #ff0b65,
+    700 : #ff095a,
+    800 : #ff0750,
+    900 : #ff033e,
+    A100 : #ffffff,
+    A200 : #fff2f5,
+    A400 : #ffbfcb,
+    A700 : #ffa6b6,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+/* For use in src/lib/core/theming/_palette.scss */
+$super-two:(
+    50 : #ffe0fe,
+    100 : #ffb3fd,
+    200 : #ff80fc,
+    300 : #ff4dfa,
+    400 : #ff26f9,
+    500 : #ff00f8,
+    600 : #ff00f7,
+    700 : #ff00f6,
+    800 : #ff00f5,
+    900 : #ff00f3,
+    A100 : #ffffff,
+    A200 : #fff2fe,
+    A400 : #ffbffc,
+    A700 : #ffa6fa,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+$my-primary: mat.define-palette($super-one, 500);
+$my-accent: mat.define-palette($super-two,500);
+
+// The "warn" palette is optional and defaults to red if not specified.
+$my-warn: mat.define-palette($super-three);
+
+$my-theme: mat.define-light-theme((
+ color: (
+   primary: $my-primary,
+   accent:$my-accent,
+   warn: $my-warn,
+ ),
+ typography: mat.define-typography-config(),
+ density: 0,
+));
+
+
+@include mat.all-component-themes($my-theme);

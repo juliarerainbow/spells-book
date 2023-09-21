@@ -20,6 +20,7 @@ export class SpellCardComponent {
     this.router.navigate(['detail']);
     // this.indexData.emit(this.spellData!.index);
     // this.router.navigateByUrl('/detail?spell='+this.spellData!.index)
+    this.router.navigateByUrl('/detail/'+this.spellData!.index)
 
   }
 
