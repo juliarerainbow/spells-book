@@ -16,10 +16,10 @@ export class SpellCardComponent {
   constructor(private spell: SpellsDataService, private router: Router){}
 
   selectSpell(){
-    //this.spell.selectedSpell = this.spellData!.index;
-    //this.router.navigate(['detail']);
-    this.indexData.emit(this.spellData!.index);
-    //this.router.navigateByUrl('/detail?spell='+this.spellData!.index)
+    this.spell.selectedSpell = this.spellData!.index;
+    this.router.navigate(['detail']);
+    // this.indexData.emit(this.spellData!.index);
+    // this.router.navigateByUrl('/detail?spell='+this.spellData!.index)
 
   }
 
